@@ -27,8 +27,9 @@ namespace Erntemaschine.Vehicles
             StartSlot = slot;
             CurrentLink = _container.InstantiatePrefab(_lineRendererPrefab).GetComponent<Link>();
             CurrentLink.SetStart(slot);
-            var color = _colorProvider.Provide(slot.Type);
-            CurrentLink.SetColor(color);
+            var myColor = _colorProvider.Provide(slot.Type, slot.IsOutput);
+            var otherColor = _colorProvider.Provide(slot.Type, !slot.IsOutput);
+            CurrentLink.SetColor(myColor, otherColor);
             CurrentLink.BindEndToCursor();
 
             if (slot is SlotIn input)

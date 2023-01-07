@@ -10,17 +10,14 @@ namespace Erntemaschine.Vehicles
 
         public Color FloatColor;
 
-        public Color Provide(SlotType type)
+        public Color Provide(SlotType type, bool isOutput)
         {
-            switch (type)
+            if (type == SlotType.Float)
             {
-                case SlotType.Bool:
-                    return BoolColor;
-                case SlotType.Float:
-                    return FloatColor;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                return isOutput ? BoolColor : FloatColor;
             }
+
+            throw new NotImplementedException();
         }
     }
 }

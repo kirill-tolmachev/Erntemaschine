@@ -68,9 +68,10 @@ namespace Erntemaschine.Vehicles
             _isEndBindedToCursor = false;
         }
 
-        public void SetColor(Color color)
+        public void SetColor(Color startColor, Color endColor)
         {
-            _lineRenderer.startColor = _lineRenderer.endColor = color;
+            _lineRenderer.startColor = startColor;
+            _lineRenderer.endColor = endColor;
         }
     }
 }
