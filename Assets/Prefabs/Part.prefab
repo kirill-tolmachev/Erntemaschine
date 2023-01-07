@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1955650035455407060}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Out
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 27505065657281168}
   - component: {fileID: 6692490205556858551}
   - component: {fileID: 8063554012867016966}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8094810183346321570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079876361684011146}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttachmentPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8134077873697340780}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: In
   m_TagString: Untagged
   m_Icon: {fileID: 0}

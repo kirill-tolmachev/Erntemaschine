@@ -1,7 +1,9 @@
 ﻿using System;
 using Assets.Scripts.Messages;
+using Cysharp.Threading.Tasks;
 using Erntemaschine.Messages.Impl;
 using UnityEngine;
+using Zenject;
 
 namespace Erntemaschine.Vehicles.Processors
 {
@@ -18,7 +20,7 @@ namespace Erntemaschine.Vehicles.Processors
 
         private float _lastTick;
 
-        [SerializeField]
+        [Inject]
         private IMessageBus _messageBus;
 
         [SerializeField] 
@@ -46,7 +48,7 @@ namespace Erntemaschine.Vehicles.Processors
             if (now - _lastTick > _tickInterval)
             {
                 _lastTick = now;
-                _messageBus.Publish(new RadarWaveStarted(transform.position, _direction.position - transform.position));
+                _messageBus.Publish(new RadarWaveStarted(transform.position, _direction.position - transform.position)).Forget();
             }
         }
     }

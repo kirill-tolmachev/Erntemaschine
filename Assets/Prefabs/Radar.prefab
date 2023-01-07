@@ -206,7 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lamp: {fileID: 6315457891299303120}
-  _tickInterval: 3
+  _tickInterval: 0.2
+  _direction: {fileID: 1394779476613788384}
 --- !u!4 &7179845151193079564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8134077873697340780, guid: bf5605b45ed6d7046a943da94544c85d,
