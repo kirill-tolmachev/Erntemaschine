@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bdce90d2a411c447974b8403b2646f7, type: 3}
+  m_Name: GameInstaller
+  m_EditorClassIdentifier: 
+  _slotColorProvider: {fileID: 11400000, guid: d22e738239bdd8940aad6c6ec13e6559, type: 2}
+  _linkPrefab: {fileID: 2719366445115684300, guid: 3847e6141e1d44948afaf0fb30677f69,
+    type: 3}
