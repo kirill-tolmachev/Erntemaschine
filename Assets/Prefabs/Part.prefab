@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 4438474189730544363}
   - component: {fileID: 27505065657281168}
   - component: {fileID: 6692490205556858551}
-  - component: {fileID: 1174511161637682313}
   - component: {fileID: 8063554012867016966}
   m_Layer: 0
   m_Name: Part
@@ -88,7 +87,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,27 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29d87b10dacf964ca2024ca2190ec05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &1174511161637682313
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3285471340927446756}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!60 &8063554012867016966
 PolygonCollider2D:
   m_ObjectHideFlags: 0

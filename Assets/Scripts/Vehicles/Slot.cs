@@ -14,7 +14,7 @@ namespace Erntemaschine.Vehicles
         private LinkDrawer _linkDrawer;
 
         [SerializeField]
-        private SlotType _type;
+        private SlotType _type = SlotType.Float;
         public SlotType Type => _type;
 
         [SerializeField] private bool _isClickable = true;

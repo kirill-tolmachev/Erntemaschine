@@ -10,6 +10,7 @@ namespace Erntemaschine.Vehicles
 
         public Processor Processor { get; private set; }
 
+
         private void Awake()
         {
             SlotIns = GetComponentsInChildren<SlotIn>();

@@ -1,4 +1,5 @@
-﻿using Erntemaschine.Vehicles;
+﻿using Assets.Scripts.Messages;
+using Erntemaschine.Vehicles;
 using UnityEngine;
 using Zenject;
 
@@ -18,6 +19,7 @@ namespace Erntemaschine.IoC
             Container.Bind<Link>().WithId("prefab").FromInstance(_linkPrefab).AsSingle();
 
             Container.Bind<LinkDrawer>().ToSelf().AsSingle();
+            Container.Bind<IMessageBus>().To<MessageBus>().AsSingle();
         }
     }
 }
