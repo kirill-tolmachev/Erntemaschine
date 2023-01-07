@@ -31,7 +31,7 @@ namespace Erntemaschine.Vehicles.Processors
         [SerializeField]
         private Transform _gunOrigin;
 
-        [Inject]
+        [Inject(Optional = true)]
         private EnemyController _enemyController;
 
         [Inject]

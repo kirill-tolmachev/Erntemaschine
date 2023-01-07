@@ -41,7 +41,6 @@ namespace Erntemaschine.Vehicles
 
         public void OnClick()
         {
-            Debug.Log("Click");
             if (!IsClickable)
                 return;
 
