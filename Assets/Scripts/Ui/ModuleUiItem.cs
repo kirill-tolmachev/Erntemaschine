@@ -52,7 +52,10 @@ namespace Erntemaschine.Ui
 
             foreach (var frame in _frames)
             {
-                frame.color = Color.red;
+                if (frame != null)
+                {
+                    frame.color = Color.red;
+                }
             }
         }
 
@@ -63,7 +66,10 @@ namespace Erntemaschine.Ui
 
             foreach (var frame in _frames)
             {
-                frame.color = Color.black;
+                if (frame != null)
+                {
+                    frame.color = Color.black;
+                }
             }
         }
     }

@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.Messages;
 using Erntemaschine.Enemies;
+using Erntemaschine.Messages.Impl;
 using UnityEngine;
+using Zenject;
 
 namespace Erntemaschine.Controllers
 {
@@ -8,6 +11,9 @@ namespace Erntemaschine.Controllers
     {
         [SerializeField]
         private Enemy[] _initEnemies;
+
+        [Inject]
+        private IMessageBus _messageBus;
 
         private readonly HashSet<Enemy> _spawnedEnemies = new HashSet<Enemy>();
 
@@ -18,6 +24,16 @@ namespace Erntemaschine.Controllers
                 _spawnedEnemies.Add(enemy);
             }
             
+            _messageBus.Subscribe<ObjectDied>(OnObjectDied);
+        }
+
+        private void OnObjectDied(ObjectDied obj)
+        {
+            if (!obj.Object.TryGetComponent(out Enemy enemy))
+                return;
+
+            _messageBus.Publish(new ExplosionOccured(enemy.transform.position));
+            Destroy(enemy);
         }
 
         public IReadOnlyCollection<Enemy> Enemies => _spawnedEnemies;

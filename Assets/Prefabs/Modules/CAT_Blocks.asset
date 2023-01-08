@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4c2e17d814d8f49984b045160660ab, type: 3}
+  m_Name: CAT_Blocks
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 11400000, guid: 824d152b4e199d240bc30ebc19f5dd57, type: 2}
+  - {fileID: 11400000, guid: dd1c18c97bf26dd4eb8afd04aef9301b, type: 2}
+  _categoryName: Blocks
+  _categoryImage: {fileID: 0}

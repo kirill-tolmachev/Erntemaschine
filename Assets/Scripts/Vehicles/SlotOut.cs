@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Erntemaschine.Vehicles
 {
     public class SlotOut : Slot
     {
+        [SerializeField] private string _id;
+
+        public string Id => _id;
+
         private List<SlotIn> _listeners = new List<SlotIn>();
+
+        public IReadOnlyCollection<SlotIn> Listeners => _listeners;
 
         public override bool IsOutput => true;
 

@@ -31,7 +31,7 @@ namespace Erntemaschine.Vehicles
         public void Start()
         {
             var button = GetComponentInChildren<Button>();
-            button.onClick.AddListener(() => OnClick());
+            button.onClick.AddListener(OnClick);
 
             var image = GetComponent<SpriteRenderer>();
             image.color = _colorProvider.Provide(Type, IsOutput);

@@ -9,9 +9,12 @@ namespace Erntemaschine.Vehicles.Processors
         private float _multiplier = 100f;
         private Func<Processor> _input;
 
+        private Func<Processor[]> _output;
+
         void Start()
         {
             _input = UseSlot("input");
+            _output = UseOutSlot("output");
         }
         
         public override bool TryGetData(out float data)
@@ -22,7 +25,7 @@ namespace Erntemaschine.Vehicles.Processors
                 return false;
             }
 
-            data = value * _multiplier;
+            data = value * _multiplier / _output().Length;
             return true;
         }
     }

@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 2739714606269613637}
+  _text: {fileID: 2739714606692314500}
 --- !u!1 &2739714606692314498
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,10 +193,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 38.1}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2739714606692314501
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -226,8 +227,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d14439a3d4e49d1418072249044cb8ca, type: 2}
+  m_sharedMaterial: {fileID: -6202802720741491563, guid: d14439a3d4e49d1418072249044cb8ca,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

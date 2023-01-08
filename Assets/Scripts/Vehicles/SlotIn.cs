@@ -10,5 +10,7 @@ namespace Erntemaschine.Vehicles
         public string Id => _id;
 
         public SlotOut LinkedSlot { get; set; }
+
+        [SerializeField] private float _maxPowerIn = 100f;
     }
 }

@@ -412,6 +412,11 @@ MonoBehaviour:
   _shootingInterval: 2
   _gunPoint: {fileID: 1771366832880713296}
   _gunOrigin: {fileID: 788192463389230949}
+  _bulletSpeed: 10
+  _bulletDamage: 40
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &5193775930139505786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8134077873697340780, guid: bf5605b45ed6d7046a943da94544c85d,

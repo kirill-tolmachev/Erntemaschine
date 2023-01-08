@@ -9,10 +9,16 @@ namespace Erntemaschine.Messages.Impl
 
         public Vector3 Direction { get; }
 
-        public GunShot(Vector3 origin, Vector3 direction)
+        public float BulletSpeed { get; }
+
+        public float BulletDamage { get; }
+
+        public GunShot(Vector3 origin, Vector3 direction, float bulletSpeed, float bulletDamage)
         {
             Origin = origin;
             Direction = direction;
+            BulletSpeed = bulletSpeed;
+            BulletDamage = bulletDamage;
         }
     }
 }

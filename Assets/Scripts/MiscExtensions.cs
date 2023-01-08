@@ -10,5 +10,7 @@ namespace Erntemaschine
         }
 
         public static Vector2 Xy(this Vector3 vector) => new Vector2(vector.x, vector.y);
+
+        public static bool HasLayer(this LayerMask mask, int layer) => ((1 << layer) & mask) != 0;
     }
 }

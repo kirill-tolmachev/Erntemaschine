@@ -12,7 +12,7 @@ using Zenject;
 
 namespace Erntemaschine.Ui
 {
-    internal class ModuleSelectionScreenController : MonoBehaviour
+    internal class ModuleSelectionScreenController : MonoBehaviour, IInitializable
     {
         [SerializeField]
         private ModuleCategory[] _categories;
@@ -44,6 +44,9 @@ namespace Erntemaschine.Ui
         [Inject] 
         private MapController _mapController;
 
+        [SerializeField] 
+        private Animator _animator;
+
         private readonly List<ModuleUiItem> _spawnedItems = new();
 
         public ModuleItem CurrentItem { get; private set; }
@@ -52,18 +55,12 @@ namespace Erntemaschine.Ui
 
         private void Start()
         {
-            foreach (var category in _categories)
-            {
-                var instance = _container.InstantiatePrefabForComponent<ModuleCategoryUiItem>(_categoryPrefab, _categoriesContainer);
-                instance.Init(category);
-                instance.OnClick += () => ChangeCategory(category);
-            }
+           
+        }
 
-            ChangeCategory(_categories[0]);
-
-            _messageBus.Subscribe<ModuleButtonSelected>(OnModuleSelected);
-            _messageBus.Subscribe<ModuleButtonDeselected>(OnModuleDeselected);
-            _messageBus.Subscribe<ModuleConstructionAttempt>(OnModuleConstructionAttempt);
+        private void Toggle(bool value)
+        {
+            gameObject.SetActive(value);
         }
 
         private void OnModuleConstructionAttempt(ModuleConstructionAttempt obj)
@@ -83,6 +80,8 @@ namespace Erntemaschine.Ui
             CurrentItem = null;
             _cursorOverload.SetObject(null, null);
             Destroy(_placeholder.gameObject);
+
+            _animator.SetBool("IsEnabled", true);
         }
 
         private void OnModuleSelected(ModuleButtonSelected obj)
@@ -96,12 +95,14 @@ namespace Erntemaschine.Ui
             _placeholder = _container.InstantiatePrefabForComponent<Part>(obj.Item.Part);
             _placeholder.MakePlaceholder();
             _cursorOverload.SetObject(_placeholder.gameObject, obj.Item);
+
+            _animator.SetBool("IsEnabled", false);
         }
 
         private void ChangeCategory(ModuleCategory category)
         {
             SelectItem(null);
-            _title.text = category.name;
+            _title.text = category.CategoryName;
 
             for (int i = _spawnedItems.Count - 1; i >= 0; i--)
             {
@@ -135,5 +136,22 @@ namespace Erntemaschine.Ui
             CurrentItem = old == item ? null : item;
         }
 
+        public void Initialize()
+        {
+            foreach (var category in _categories)
+            {
+                var instance = _container.InstantiatePrefabForComponent<ModuleCategoryUiItem>(_categoryPrefab, _categoriesContainer);
+                instance.Init(category);
+                instance.OnClick += () => ChangeCategory(category);
+            }
+
+            ChangeCategory(_categories[0]);
+
+            _messageBus.Subscribe<ModuleButtonSelected>(OnModuleSelected);
+            _messageBus.Subscribe<ModuleButtonDeselected>(OnModuleDeselected);
+            _messageBus.Subscribe<ModuleConstructionAttempt>(OnModuleConstructionAttempt);
+            _messageBus.Subscribe<HideBuildMenu>(x => Toggle(false));
+            _messageBus.Subscribe<ShowBuildMenu>(x => Toggle(true));
+        }
     }
 }

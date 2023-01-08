@@ -31,6 +31,12 @@ namespace Erntemaschine.Vehicles.Processors
         [SerializeField]
         private Transform _gunOrigin;
 
+        [SerializeField] 
+        private float _bulletSpeed;
+
+        [SerializeField]
+        private float _bulletDamage;
+
         [Inject(Optional = true)]
         private EnemyController _enemyController;
 
@@ -83,7 +89,7 @@ namespace Erntemaschine.Vehicles.Processors
 
             var old = _gunOrigin.transform.rotation.eulerAngles;
             //TODO: Проверить если при добавлении вращения уедем сильнее чем надо. Уехать либо на вращение, либо на точный поворот до противника.
-            _gunOrigin.transform.rotation = Quaternion.Euler(0f, 0f, old.z - Mathf.Sign(diff) * _rotationSpeed * Time.deltaTime);
+            _gunOrigin.transform.rotation = Quaternion.Euler(0f, 0f, old.z - Mathf.Sign(diff) * _rotationSpeed * value * Time.deltaTime);
         }
 
         private float AngularDistance(Vector3 origin, Vector3 direction, Vector3 position)
@@ -95,7 +101,7 @@ namespace Erntemaschine.Vehicles.Processors
         private void Shoot(float value)
         {
             var now = Time.time;
-            if (now - _lastShootTime < _shootingInterval)
+            if (now - _lastShootTime < _shootingInterval / value)
             {
                 return;
             }
@@ -107,7 +113,7 @@ namespace Erntemaschine.Vehicles.Processors
                 return;
             }
 
-            _messageBus.Publish(new GunShot(_gunPoint.position, Direction)).Forget();
+            _messageBus.Publish(new GunShot(_gunPoint.position, Direction, _bulletSpeed, _bulletDamage)).Forget();
             _lastShootTime = now; 
         }
 

@@ -11,7 +11,7 @@ namespace Erntemaschine.Vehicles
         public SlotOut[] SlotOuts { get; private set; }
 
         public Processor Processor { get; private set; }
-
+        
 
         private void Awake()
         {

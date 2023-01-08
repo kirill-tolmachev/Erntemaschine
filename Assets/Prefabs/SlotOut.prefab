@@ -90,3 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _isClickable: 1
+  _id: output

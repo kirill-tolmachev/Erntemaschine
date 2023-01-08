@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,8 @@ namespace Erntemaschine.Vehicles.Processors
 
         public bool Active { get; private set; }
 
+        private Func<Processor[]> _out;
+
         public string DisplayName
         {
             get => _text.text;
@@ -30,6 +33,7 @@ namespace Erntemaschine.Vehicles.Processors
         {
             _button.onClick.AddListener(OnClick);
             DisplayName = _displayName;
+            _out = UseOutSlot("output");
         }
 
         private void OnClick()
@@ -46,7 +50,10 @@ namespace Erntemaschine.Vehicles.Processors
                 return false;
             }
 
-            data = 1f;
+            var outCount = _out().Length;
+
+
+            data = 1f / outCount;
             return true;
         }
     }

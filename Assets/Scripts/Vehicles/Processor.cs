@@ -24,6 +24,16 @@ namespace Erntemaschine.Vehicles
             };
         }
 
+        protected Func<Processor[]> UseOutSlot(string id)
+        {
+            var slot = GetComponentsInChildren<SlotOut>().Single(x => x.Id == id);
+            return () =>
+            {
+                var listeners = slot.Listeners;
+                return listeners.Select(x => x.Processor).ToArray();
+            };
+        }
+
 
         public virtual bool TryGetData(out float data)
         {
