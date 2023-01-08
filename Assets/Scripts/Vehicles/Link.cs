@@ -27,6 +27,9 @@ namespace Erntemaschine.Vehicles
         private void Update()
         {
             var start = _start;
+            if (start == null)
+                return;
+
             var end = (_isEndBindedToCursor ? GetWorldMousePosition() : _end.transform.position).WithZ(start.transform.position.z);
 
             _lineRenderer.SetPositions(new []{start.transform.position, end});

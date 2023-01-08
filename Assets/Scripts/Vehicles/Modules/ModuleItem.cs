@@ -16,5 +16,15 @@ namespace Erntemaschine.Vehicles.Modules
 
         [SerializeField] private Part _part;
         public Part Part => _part;
+
+        [SerializeField]
+        private float _costW;
+
+        public float CostW => _costW;
+
+        [SerializeField] 
+        private float _costX;
+
+        public float CostX => _costX;
     }
 }

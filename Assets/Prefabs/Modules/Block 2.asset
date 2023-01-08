@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Block 2
   m_EditorClassIdentifier: 
   _itemName: Block 2
-  _itemDescription: Block
+  _itemDescription: Might get attacked a little more often
   _sprite: {fileID: 0}
   _part: {fileID: 4904982089524067735, guid: 7f0113b79f8c5d04d9f076ded0f42d6d, type: 3}
+  _costW: 100
+  _costX: 0

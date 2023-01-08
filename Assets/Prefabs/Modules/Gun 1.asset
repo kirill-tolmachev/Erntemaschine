@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e630f4a80606a246b5925c924b580c0, type: 3}
   m_Name: Gun 1
   m_EditorClassIdentifier: 
-  _itemName: Gun 1
-  _itemDescription: Some Gun
+  _itemName: Pioneer
+  _itemDescription: Cheap and weak
   _sprite: {fileID: 0}
-  _part: {fileID: 7210671369566492577, guid: 1b851ba035f0d764b90248b1177dae90, type: 3}
+  _part: {fileID: 7210671369566492577, guid: 2d769dc04f1f11042a397668ae07ff42, type: 3}
+  _costW: 50
+  _costX: 1000

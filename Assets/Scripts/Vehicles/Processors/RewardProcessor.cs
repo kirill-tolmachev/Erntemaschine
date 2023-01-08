@@ -9,7 +9,7 @@ namespace Erntemaschine.Vehicles.Processors
 {
     internal class RewardProcessor : Processor
     {
-        private Func<Processor> _input;
+        private SlotReader _input;
 
         private float _progress;
 
@@ -28,13 +28,15 @@ namespace Erntemaschine.Vehicles.Processors
         [Inject] 
         private IMessageBus _messageBus;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _input = UseSlot("input");
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             if (!_input.TryRead(out var value))
             {
                 return;

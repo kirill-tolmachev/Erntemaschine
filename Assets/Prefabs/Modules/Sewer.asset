@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Sewer
   m_EditorClassIdentifier: 
   _itemName: Sewer
-  _itemDescription: Drops seeds
+  _itemDescription: Grants W
   _sprite: {fileID: 0}
   _part: {fileID: 1147851412511199822, guid: f3718f3ba1ae7944487cec828731660a, type: 3}
+  _costW: 0
+  _costX: 1000

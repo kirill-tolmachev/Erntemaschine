@@ -10,7 +10,7 @@ namespace Erntemaschine.Vehicles
 
         public string Id => _id;
 
-        private List<SlotIn> _listeners = new List<SlotIn>();
+        private HashSet<SlotIn> _listeners = new HashSet<SlotIn>();
 
         public IReadOnlyCollection<SlotIn> Listeners => _listeners;
 

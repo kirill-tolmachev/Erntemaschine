@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Erntemaschine.Controllers;
 using UnityEngine;
 using Zenject;
 
@@ -12,7 +13,7 @@ namespace Erntemaschine.Vehicles
         [Inject(Id = "prefab")] private Link _lineRendererPrefab;
 
         [Inject] private DiContainer _container;
-
+        
         public Link CurrentLink { get; private set; }
 
         public Slot StartSlot { get; private set; }
@@ -25,7 +26,7 @@ namespace Erntemaschine.Vehicles
                 return null;
 
             StartSlot = slot;
-            CurrentLink = _container.InstantiatePrefab(_lineRendererPrefab).GetComponent<Link>();
+            CurrentLink = _container.InstantiatePrefab(_lineRendererPrefab, MapRoot.Instance.transform).GetComponent<Link>();
             CurrentLink.SetStart(slot);
             var myColor = _colorProvider.Provide(slot.Type, slot.IsOutput);
             var otherColor = _colorProvider.Provide(slot.Type, !slot.IsOutput);
@@ -61,6 +62,21 @@ namespace Erntemaschine.Vehicles
 
             CurrentLink = null;
             return true;
+        }
+
+        public void DropAllLinks(SlotIn slot) => DropExistingInputLink(slot);
+
+        public void DropAllLinks(SlotOut slot)
+        {
+            var links = _links.Where(x => x.SlotOut == slot).ToList();
+
+            foreach (var link in links)
+            {
+                if (link.SlotIn != null)
+                    link.SlotIn.LinkedSlot = null;
+
+                DropLink(link);
+            }
         }
 
         private void DropExistingInputLink(SlotIn input)

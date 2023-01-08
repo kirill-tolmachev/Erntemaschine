@@ -16,3 +16,5 @@ MonoBehaviour:
   _itemDescription: Amplifies signal
   _sprite: {fileID: 0}
   _part: {fileID: 1044258505561803033, guid: 8e7258806daa4f4499cb9928c5dbd95a, type: 3}
+  _costW: 0
+  _costX: 0

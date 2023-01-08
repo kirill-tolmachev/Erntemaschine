@@ -2,6 +2,7 @@
 using Assets.Scripts.Messages;
 using Cysharp.Threading.Tasks;
 using Erntemaschine.Controllers;
+using Erntemaschine.Messages;
 using Erntemaschine.Messages.Impl;
 using Erntemaschine.Vehicles;
 using Erntemaschine.Vehicles.Modules;
@@ -41,9 +42,6 @@ namespace Erntemaschine.Ui
         [SerializeField]
         private CursorOverload _cursorOverload;
 
-        [Inject] 
-        private MapController _mapController;
-
         [SerializeField] 
         private Animator _animator;
 
@@ -65,14 +63,15 @@ namespace Erntemaschine.Ui
 
         private void OnModuleConstructionAttempt(ModuleConstructionAttempt obj)
         {
-            if (!obj.Item.Part.CanBeSpawned(obj.Position, obj.Rotation, _mapController))
+            if (!obj.Item.Part.CanBeSpawned(obj.Position, obj.Rotation, MapController.Instance))
                 return;
 
             var instance = _container.InstantiatePrefabForComponent<Part>(obj.Item.Part, obj.Position,
                 Quaternion.Euler(0f, 0f, obj.Rotation), MapRoot.Instance.transform);
 
-            _mapController.AddSpawnedPart(instance);
+            MapController.Instance.AddSpawnedPart(instance);
             _messageBus.Publish(new ModuleButtonDeselected(obj.Item));
+            _messageBus.Publish(new ResourceSubtracted(obj.Item.CostX, obj.Item.CostW));
         }
 
         private void OnModuleDeselected(ModuleButtonDeselected obj)

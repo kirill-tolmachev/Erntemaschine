@@ -5,7 +5,7 @@ namespace Erntemaschine.Vehicles.Processors
 {
     internal class SickleProcessor : Processor
     {
-        private Func<Processor> _input;
+        private SlotReader _input;
 
         [SerializeField]
         private Transform _sickle;
@@ -15,13 +15,15 @@ namespace Erntemaschine.Vehicles.Processors
 
         private float _direction = 1f;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _input = UseSlot("input");
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             if (!_input.TryRead(out var value))
             {
                 return;

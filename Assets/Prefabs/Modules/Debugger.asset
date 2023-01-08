@@ -16,3 +16,5 @@ MonoBehaviour:
   _itemDescription: Displays value
   _sprite: {fileID: 0}
   _part: {fileID: 6583213509294231970, guid: 7254fc0c7cceca041a3c0787d79f22bc, type: 3}
+  _costW: 100
+  _costX: 100

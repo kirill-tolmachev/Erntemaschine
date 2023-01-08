@@ -29,10 +29,8 @@ namespace Erntemaschine.Vehicles
             if (!other.gameObject.TryGetComponent(out Health health)) 
                 return;
 
-            health.Value -= Damage;
-
             var contact = col.GetContact(0);
-            _messageBus.Publish(new BulletHit(this, contact.point)).Forget();
+            _messageBus.Publish(new BulletHit(this, other.gameObject, contact.point)).Forget();
         }
     }
 }

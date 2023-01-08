@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7057405473835236282}
   - component: {fileID: 5177556466030956644}
   - component: {fileID: 7662774517902559520}
+  - component: {fileID: 8923356411104178514}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 56b280a635c67e9499a3062c642bf2c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 62b9991e548de9741bcd4bd12c12bd14,
+  m_SortingOrder: 15
+  m_Sprite: {fileID: 7482667652216324306, guid: 9e0240540a6f6f541b0c09487d165b07,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 7057405473835236282}
+  _damage: 20
 --- !u!60 &7057405473835236282
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -118,7 +120,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.28866667}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -166,3 +168,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _value: 100
   _maxValue: 100
+--- !u!114 &8923356411104178514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597178333115356661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f4430beb396394f9e7f21fef3822a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _enemy: {fileID: 7535014947819539880}
+  _characterController: {fileID: 0}
+  _attackInterval: 2

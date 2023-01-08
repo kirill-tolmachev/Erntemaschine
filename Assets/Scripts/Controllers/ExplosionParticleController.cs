@@ -23,6 +23,7 @@ namespace Erntemaschine.Controllers
         {
             _messageBus.Subscribe<ExplosionOccured>(x => MakeExplosion(x.Position));
             _messageBus.Subscribe<BulletHit>(x => MakeHit(x.Position));
+            _messageBus.Subscribe<EnemyAttacked>(x => MakeHit(x.Part.transform.position));
         }
 
         private void MakeExplosion(Vector3 position)

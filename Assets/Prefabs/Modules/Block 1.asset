@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e630f4a80606a246b5925c924b580c0, type: 3}
   m_Name: Block 1
   m_EditorClassIdentifier: 
-  _itemName: Block 1
-  _itemDescription: Block
+  _itemName: Block
+  _itemDescription: Might get attacked. Might not.
   _sprite: {fileID: 0}
   _part: {fileID: 4904982089524067735, guid: 26ea535a4ed1e4441a75ae9e4af167d2, type: 3}
+  _costW: 10
+  _costX: 0

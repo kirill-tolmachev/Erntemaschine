@@ -9,9 +9,12 @@ namespace Erntemaschine.Messages.Impl
         public Bullet Bullet { get; }
         public Vector3 Position { get; }
 
-        public BulletHit(Bullet bullet, Vector3 position)
+        public GameObject Target { get; }
+
+        public BulletHit(Bullet bullet, GameObject target, Vector3 position)
         {
             Bullet = bullet;
+            Target = target;
             Position = position;
         }
     }

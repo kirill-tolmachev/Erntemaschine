@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e630f4a80606a246b5925c924b580c0, type: 3}
+  m_Name: Gun 2
+  m_EditorClassIdentifier: 
+  _itemName: Mobster
+  _itemDescription: Average
+  _sprite: {fileID: 0}
+  _part: {fileID: 7210671369566492577, guid: 39215eac5bc51874f8236147bb0c1fd4, type: 3}
+  _costW: 200
+  _costX: 2000

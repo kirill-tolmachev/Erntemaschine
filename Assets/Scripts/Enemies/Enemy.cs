@@ -10,5 +10,9 @@ namespace Erntemaschine.Enemies
         [SerializeField] private Collider2D _collider;
 
         public bool IsSeen => true;
+
+        [SerializeField] private float _damage;
+
+        public float Damage => _damage;
     }
 }

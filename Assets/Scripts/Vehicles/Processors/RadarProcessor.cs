@@ -16,7 +16,7 @@ namespace Erntemaschine.Vehicles.Processors
         private float _tickInterval;
 
         private Color _defaultLampColor;
-        private Func<Processor> _input;
+        private SlotReader _input;
 
         private float _lastTick;
 
@@ -26,13 +26,13 @@ namespace Erntemaschine.Vehicles.Processors
         [SerializeField] 
         private Transform _direction;
 
-        private void Start()
+        protected override void Start()
         {
             _input = UseSlot("input");
             _defaultLampColor = _lamp.Color;
         }
 
-        private void Update()
+        protected override void Update()
         {
             var now = Time.time;
             if (!_input.TryRead(out var value))

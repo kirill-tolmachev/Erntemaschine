@@ -16,11 +16,15 @@ namespace Erntemaschine.IoC
         [SerializeField]
         private EnemyController _enemyController;
 
+        [SerializeField]
+        private MapController _mapController;
+
         public override void InstallBindings()
         {
             Container.Bind<RandomSoundPlayer>().WithId("buttons").FromInstance(_buttonSounds).AsSingle();
             Container.Bind<RadarController>().FromInstance(_radarController).AsSingle();
             Container.Bind<EnemyController>().FromInstance(_enemyController).AsSingle();
+            Container.Bind<MapController>().FromInstance(_mapController).AsSingle();
         }
     }
 }

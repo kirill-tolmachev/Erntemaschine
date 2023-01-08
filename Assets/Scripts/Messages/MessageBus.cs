@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager.Requests;
-using UnityEditor.VersionControl;
 
 namespace Assets.Scripts.Messages
 {
@@ -35,7 +29,8 @@ namespace Assets.Scripts.Messages
                 throw new ArgumentNullException(nameof(message));
 
             foreach (var listener in GetListeners<TMessage>())
-                listener?.Invoke(message);
+                if (listener != null)
+                    listener.Invoke(message);
 
             foreach (var listener in GetAsyncListeners<TMessage>())
             {

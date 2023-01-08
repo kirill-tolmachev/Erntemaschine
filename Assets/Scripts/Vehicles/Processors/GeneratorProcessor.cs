@@ -7,12 +7,13 @@ namespace Erntemaschine.Vehicles.Processors
     {
         private Func<Processor[]> _out;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _out = UseOutSlot("output");
         }
 
-        public override bool TryGetData(out float data)
+        public override bool TryGetData(out float data, int depth)
         {
             var outCount = _out().Length;
             data = Mathf.Sin(Time.time) / outCount;

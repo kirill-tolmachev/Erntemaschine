@@ -5,20 +5,22 @@ namespace Erntemaschine.Vehicles.Processors
 {
     internal class EngineProcessor : Processor
     {
-        private Func<Processor> _input;
+        private SlotReader _input;
 
         [SerializeField]
         private ParticleSystem _particleSystem;
 
         private bool _isEnabled;
 
-        void Start()
+        protected override void Start()
         {
+            base.Start();
             _input = UseSlot("input");
         }
 
-        void Update()
+        protected override void Update()
         {
+            base.Update();
             if (!_input.TryRead(out var value))
             {
                 _isEnabled = false;

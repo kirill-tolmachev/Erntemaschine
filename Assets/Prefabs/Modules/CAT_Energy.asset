@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: CAT_Energy
   m_EditorClassIdentifier: 
   _items:
-  - {fileID: 11400000, guid: fe195cbe028cc0c4683509778a32de21, type: 2}
+  - {fileID: 11400000, guid: 09f62b64eee5678458fd94a454347139, type: 2}
   - {fileID: 11400000, guid: 7703abcf5ff0f7c42b8e0e5bc15d8bd0, type: 2}
   - {fileID: 11400000, guid: fd9d83ec979f905468e786bf73f02068, type: 2}
+  - {fileID: 11400000, guid: fe195cbe028cc0c4683509778a32de21, type: 2}
   _categoryName: Energy
   _categoryImage: {fileID: 0}

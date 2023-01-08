@@ -395,10 +395,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73eb7dbda1b5b95489f8a110c5a69fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _overpoweredHealthDecay: 5
   _minScale: 0.1
   _maxScale: 1
   _button: {fileID: 6650045263663035538}
-  _growthSpeed: 0.1
+  _growthSpeed: 0.01
   _disabledColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
   _enabledColor: {r: 0.04150939, g: 1, b: 0.07589189, a: 1}
 --- !u!4 &6361672412870183621 stripped

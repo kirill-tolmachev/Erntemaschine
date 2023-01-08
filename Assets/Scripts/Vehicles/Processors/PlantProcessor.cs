@@ -10,7 +10,7 @@ namespace Erntemaschine.Vehicles.Processors
 {
     internal class PlantProcessor : Processor
     {
-        private Func<Processor> _input;
+        private SlotReader _input;
 
         [SerializeField]
         private float _minScale;
@@ -35,14 +35,16 @@ namespace Erntemaschine.Vehicles.Processors
         [Inject]
         private IMessageBus _messageBus;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _input = UseSlot("input");
             _button.onClick.AddListener(OnHarvest);
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             bool buttonActive = _value >= 1f;
             _button.interactable = buttonActive;
             var scale = _minScale + (_maxScale - _minScale) * _value;

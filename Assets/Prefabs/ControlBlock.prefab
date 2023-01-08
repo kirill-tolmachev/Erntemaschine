@@ -426,6 +426,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8054779531699883070, guid: 9d0ba59dfc54b414fbf6057ba36dd63e,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.27450982
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054779531699883070, guid: 9d0ba59dfc54b414fbf6057ba36dd63e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5767ae272d489eb42b7faf0d73d9002b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d0ba59dfc54b414fbf6057ba36dd63e, type: 3}
 --- !u!114 &8217973497430788104 stripped
@@ -601,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5920bdb6e3a21384bb98dced871a3bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _overpoweredHealthDecay: 5
   _button: {fileID: 3228314167550172346}
   _text: {fileID: 8385537339064064803}
   _displayName: A

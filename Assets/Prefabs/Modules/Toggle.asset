@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e630f4a80606a246b5925c924b580c0, type: 3}
+  m_Name: Toggle
+  m_EditorClassIdentifier: 
+  _itemName: Generator
+  _itemDescription: Provides a small amout of energy
+  _sprite: {fileID: 0}
+  _part: {fileID: 4280890188250600464, guid: c504067916f69864db2565f98b660309, type: 3}
+  _costW: 1000
+  _costX: 1000

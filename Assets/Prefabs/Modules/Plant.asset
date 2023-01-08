@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Plant
   m_EditorClassIdentifier: 
   _itemName: Plant
-  _itemDescription: A natural plant
+  _itemDescription: Grants X
   _sprite: {fileID: 0}
   _part: {fileID: 4121097101735636633, guid: 32f17cc8463d9ce448394e1ae3624011, type: 3}
+  _costW: 1000
+  _costX: 0

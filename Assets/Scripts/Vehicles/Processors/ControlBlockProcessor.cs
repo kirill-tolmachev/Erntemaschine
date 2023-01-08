@@ -2,11 +2,14 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Erntemaschine.Vehicles.Processors
 {
     internal class ControlBlockProcessor : Processor
     {
+        private static char _names;
+
         [SerializeField] 
         private Button _button;
 
@@ -32,7 +35,7 @@ namespace Erntemaschine.Vehicles.Processors
         private void Awake()
         {
             _button.onClick.AddListener(OnClick);
-            DisplayName = _displayName;
+            DisplayName = Alphabet[Random.Range(0, Alphabet.Length)].ToString().ToUpperInvariant();
             _out = UseOutSlot("output");
         }
 
@@ -42,7 +45,7 @@ namespace Erntemaschine.Vehicles.Processors
             _lamp.Toggle(Active);
         }
 
-        public override bool TryGetData(out float data)
+        public override bool TryGetData(out float data, int depth)
         {
             if (!Active)
             {
@@ -56,5 +59,8 @@ namespace Erntemaschine.Vehicles.Processors
             data = 1f / outCount;
             return true;
         }
+
+        private string Alphabet = "abcdefghijklmnopqrstuvwxyz";
+
     }
 }

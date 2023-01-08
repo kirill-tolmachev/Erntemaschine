@@ -10,12 +10,11 @@ namespace Erntemaschine.Controllers
 {
     internal class ResourceController : MonoBehaviour
     {
-        private float _x;
-
-        private float _w;
-
         [Inject]
         private IMessageBus _messageBus;
+
+        [Inject] 
+        private ResourcesStorage _storage;
 
         [SerializeField] private TMP_Text _wText;
         [SerializeField] private TMP_Text _xText;
@@ -24,22 +23,29 @@ namespace Erntemaschine.Controllers
         {
             _messageBus.Subscribe<RewardGranted>(Callback);
             _messageBus.Subscribe<Harvest>(OnHarvest);
+            _messageBus.Subscribe<ResourceSubtracted>(OnResourceSubtracted);
+        }
+
+        private void OnResourceSubtracted(ResourceSubtracted obj)
+        {
+            _storage.W -= obj.W;
+            _storage.X -= obj.X;
         }
 
         private void Update()
         {
-            _wText.text = _w.ToString("F", CultureInfo.InvariantCulture);
-            _xText.text = _x.ToString("F", CultureInfo.InvariantCulture);
+            _wText.text = _storage.W.ToMoneyString();
+            _xText.text = _storage.X.ToMoneyString();
         }
 
         private void Callback(RewardGranted obj)
         {
-            _w += obj.Value;
+            _storage.W += obj.Value;
         }
 
         private void OnHarvest(Harvest obj)
         {
-            _x += 100f;
+            _storage.X += 100f;
         }
     }
 }

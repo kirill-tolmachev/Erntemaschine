@@ -7,12 +7,13 @@ namespace Erntemaschine.Vehicles.Processors
     {
         [SerializeField]
         private float _speed = 100f;
-        private Func<Processor> _input;
+        private SlotReader _input;
         [SerializeField]
         private Rigidbody2D _wheel;
 
-        void Start()
+        protected override void Start()
         {
+            base.Start();
             _input = UseSlot("input");
         }
 

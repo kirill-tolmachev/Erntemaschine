@@ -29,12 +29,14 @@ namespace Erntemaschine.Ui
 
         private void OnBuildMenuShown()
         {
-            _button.gameObject.SetActive(false);
+            if (_button != null)
+                _button.gameObject.SetActive(false);
         }
 
         private void OnBuildMenuHidden()
         {
-            _button.gameObject.SetActive(true);
+            if (_button != null)
+                _button.gameObject.SetActive(true);
         }
     }
 }

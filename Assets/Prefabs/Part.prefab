@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 27505065657281168}
   - component: {fileID: 6692490205556858551}
   - component: {fileID: 8063554012867016966}
+  - component: {fileID: 873028075620456290}
+  - component: {fileID: 4467370072005368707}
   m_Layer: 7
   m_Name: Part
   m_TagString: Untagged
@@ -110,7 +112,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
-  m_Color: {r: 0.27924526, g: 0.4603395, b: 0.6981132, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29d87b10dacf964ca2024ca2190ec05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetPriority: 0
 --- !u!60 &8063554012867016966
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -161,6 +164,36 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.5}
+--- !u!114 &873028075620456290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285471340927446756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a3947293419544ca596ff4c1064903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 100
+  _maxValue: 100
+--- !u!114 &4467370072005368707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285471340927446756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &4156404202096946198
 GameObject:
   m_ObjectHideFlags: 0

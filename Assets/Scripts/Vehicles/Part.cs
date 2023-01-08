@@ -6,6 +6,10 @@ namespace Erntemaschine.Vehicles
 {
     public class Part : MonoBehaviour
     {
+        [SerializeField] private float _targetPriority;
+
+        public float TargetPriority => _targetPriority;
+
         public SlotIn[] SlotIns { get; private set; }
 
         public SlotOut[] SlotOuts { get; private set; }

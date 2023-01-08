@@ -12,9 +12,9 @@ namespace Erntemaschine.Vehicles.Processors
 {
     internal class GunProcessor : Processor
     {
-        private Func<Processor> _rotate;
+        private SlotReader _rotate;
 
-        private Func<Processor> _shoot;
+        private SlotReader _shoot;
 
         [SerializeField]
         private float _maxRange = 100f;
@@ -48,14 +48,16 @@ namespace Erntemaschine.Vehicles.Processors
 
         private float _lastShootTime;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _rotate = UseSlot("rotate");
             _shoot = UseSlot("attack");
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             if (_rotate.TryRead(out var rotate))
             {
                 Rotate(rotate);

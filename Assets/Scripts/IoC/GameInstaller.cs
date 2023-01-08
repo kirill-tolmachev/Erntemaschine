@@ -21,7 +21,7 @@ namespace Erntemaschine.IoC
 
             Container.Bind<LinkDrawer>().ToSelf().AsSingle();
             Container.Bind<IMessageBus>().To<MessageBus>().AsSingle();
-            Container.Bind<MapController>().ToSelf().AsSingle();
+            Container.Bind<ResourcesStorage>().ToSelf().AsSingle();
         }
     }
 }
