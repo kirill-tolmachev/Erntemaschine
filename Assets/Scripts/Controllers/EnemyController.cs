@@ -27,7 +27,6 @@ namespace Erntemaschine.Controllers
             }
             
             _messageBus.Subscribe<ObjectDied>(OnObjectDied);
-
             Instance = this;
         }
 

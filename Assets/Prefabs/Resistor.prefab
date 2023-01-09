@@ -301,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 3285471340927446756, guid: bf5605b45ed6d7046a943da94544c85d,
         type: 3}
       propertyPath: m_Name
-      value: Amp
+      value: Resistor
       objectReference: {fileID: 0}
     - target: {fileID: 4438474189730544363, guid: bf5605b45ed6d7046a943da94544c85d,
         type: 3}
@@ -397,8 +397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ab1f5c7585af441ba084378efd2005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overpoweredHealthDecay: 15
-  _multiplier: 20
+  _overpoweredHealthDecay: 5
+  _multiplier: 0.5
 --- !u!1001 &7430522858732534691
 PrefabInstance:
   m_ObjectHideFlags: 0

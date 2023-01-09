@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7489212716433760149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.473, z: 0}
+  m_LocalPosition: {x: 0, y: 0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -407,16 +407,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _overpoweredHealthDecay: 5
-  _maxRange: 100
+  _maxRange: 40
   _rotationSpeed: 50
-  _shootingInterval: 0.3
+  _shootingInterval: 0.5
   _gunPoint: {fileID: 1771366832880713296}
   _gunOrigin: {fileID: 788192463389230949}
   _bulletSpeed: 25
-  _bulletDamage: 1
+  _bulletDamage: 8
+  _bulletScale: 0.1
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
 --- !u!4 &5193775930139505786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8134077873697340780, guid: bf5605b45ed6d7046a943da94544c85d,

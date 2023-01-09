@@ -13,6 +13,7 @@ namespace Assets.Scripts.Messages
         void Subscribe<TMessage>(Action<TMessage> callback) where TMessage : IMessage;
         void SubscribeAsync<TMessage>(Func<TMessage, UniTask> callback) where TMessage : IMessage;
 
-        void Unsubscribe<TMessage>(Action<TMessage> callback) where TMessage : IMessage;
+        void Unsubscribe<TMessage>(Action<TMessage> callback) where TMessage : IMessage; 
+        void Reset();
     }
 }

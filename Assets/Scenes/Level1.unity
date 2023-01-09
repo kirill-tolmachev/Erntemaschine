@@ -432,8 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6adb4915477644fbf3aef636defba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initEnemies:
-  - {fileID: 0}
+  _initEnemies: []
 --- !u!1 &472419900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,7 +2670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d0502888ee0f44285fad6f029e9427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnInterval: 20
+  _spawnInterval: 90
   _enemyCoord: 100
   _mapController: {fileID: 728315218}
   _enemyPrefab: {fileID: 7535014947819539880, guid: 51a81aad05a051648a91ec15a8dbf762,

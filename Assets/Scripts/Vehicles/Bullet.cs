@@ -16,17 +16,21 @@ namespace Erntemaschine.Vehicles
 
         public float Speed;
 
+        public Transform Author;
+
         [Inject]
         private IMessageBus _messageBus;
 
         private void OnCollisionEnter2D(Collision2D col)
         {
-            Debug.Log("Collision enter");
             var other = col.collider;
             if (!_targetMask.HasLayer(other.gameObject.layer))
                 return;
-            
-            if (!other.gameObject.TryGetComponent(out Health health)) 
+
+            if (other.transform == Author)
+                return;
+
+            if (!other.gameObject.TryGetComponent(out Health _)) 
                 return;
 
             var contact = col.GetContact(0);

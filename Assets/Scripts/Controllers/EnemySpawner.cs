@@ -38,7 +38,7 @@ namespace Erntemaschine.Controllers
         private void SpawnWave()
         {
             int count = _mapController.SpawnedParts.Count;
-            if (count < 5)
+            if (count < 7)
                 return;
 
             int enemyCount = count / 3;

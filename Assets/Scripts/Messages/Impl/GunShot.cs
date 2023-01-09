@@ -5,6 +5,8 @@ namespace Erntemaschine.Messages.Impl
 {
     internal class GunShot : IMessage
     {
+        public Transform Author { get; }
+
         public Vector3 Origin { get; }
 
         public Vector3 Direction { get; }
@@ -13,12 +15,16 @@ namespace Erntemaschine.Messages.Impl
 
         public float BulletDamage { get; }
 
-        public GunShot(Vector3 origin, Vector3 direction, float bulletSpeed, float bulletDamage)
+        public float BulletScale { get; }
+
+        public GunShot(Transform author, Vector3 origin, Vector3 direction, float bulletSpeed, float bulletDamage, float bulletScale)
         {
+            Author = author;
             Origin = origin;
             Direction = direction;
             BulletSpeed = bulletSpeed;
             BulletDamage = bulletDamage;
+            BulletScale = bulletScale;
         }
     }
 }

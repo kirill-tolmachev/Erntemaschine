@@ -37,14 +37,17 @@ namespace Erntemaschine.Vehicles.Processors
         [SerializeField]
         private float _bulletDamage;
 
-        [Inject(Optional = true)]
-        private EnemyController _enemyController;
+        [SerializeField] 
+        private float _bulletScale;
+
+        private EnemyController EnemyController => EnemyController.Instance;
 
         [Inject]
         private IMessageBus _messageBus;
 
         [SerializeField] 
         private LayerMask _layerMask;
+
 
         private float _lastShootTime;
 
@@ -73,7 +76,7 @@ namespace Erntemaschine.Vehicles.Processors
 
         private void Rotate(float value)
         {
-            var enemies = _enemyController.Enemies.OrderBy(x => Mathf.Abs(AngularDistance(_gunPoint.position, Direction, x.transform.position)));
+            var enemies = EnemyController.Enemies.OrderBy(x => Mathf.Abs(AngularDistance(_gunPoint.position, Direction, x.transform.position)));
             var closest = enemies.FirstOrDefault();
 
             if (closest == null)
@@ -87,7 +90,6 @@ namespace Erntemaschine.Vehicles.Processors
             }
 
             var diff = AngularDistance(_gunPoint.position, Direction, closest.transform.position);
-            // _rotationSpeed * Time.deltaTime;
 
             var old = _gunOrigin.transform.rotation.eulerAngles;
             //TODO: Проверить если при добавлении вращения уедем сильнее чем надо. Уехать либо на вращение, либо на точный поворот до противника.
@@ -108,14 +110,14 @@ namespace Erntemaschine.Vehicles.Processors
                 return;
             }
 
-            var enemies = _enemyController.Enemies;
+            var enemies = EnemyController.Enemies;
             bool isInRange = enemies.Any(AimIntersects);
             if (!isInRange)
             {
                 return;
             }
 
-            _messageBus.Publish(new GunShot(_gunPoint.position, Direction, _bulletSpeed, _bulletDamage)).Forget();
+            _messageBus.Publish(new GunShot(transform, _gunPoint.position, Direction, _bulletSpeed, _bulletDamage, _bulletScale)).Forget();
             _lastShootTime = now; 
         }
 
@@ -124,10 +126,12 @@ namespace Erntemaschine.Vehicles.Processors
             if (!enemy.IsSeen)
                 return false;
 
-            Debug.DrawRay(_gunOrigin.position, Direction * _maxRange, Color.yellow);
-            var hit = Physics2D.Raycast(_gunOrigin.position, Direction * _maxRange, Mathf.Infinity);
+            var hit = Physics2D.Raycast(_gunPoint.position, Direction * _maxRange, Mathf.Infinity, _layerMask);
 
-            return hit.transform == enemy.transform;
+            bool result =  hit.transform == enemy.transform;
+            Debug.DrawRay(_gunOrigin.position, Direction * _maxRange, hit.transform != null ? Color.red : Color.yellow);
+
+            return result;
         }
     }
 }

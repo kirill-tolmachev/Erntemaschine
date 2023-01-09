@@ -68,5 +68,12 @@ namespace Assets.Scripts.Messages
             var listeners = GetListeners<TMessage>();
             listeners.RemoveListener(callback);
         }
+
+        public void Reset()
+        {
+            m_listeners.Clear();
+            m_asyncListeners.Clear();
+            m_requestListeners.Clear();
+        }
     }
 }

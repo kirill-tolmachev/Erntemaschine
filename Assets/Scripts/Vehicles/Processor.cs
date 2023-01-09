@@ -10,7 +10,13 @@ namespace Erntemaschine.Vehicles
     {
         protected Processor[] Inputs { get; private set; }
 
-        public bool IsOverpowered => _readers.Any(x => x.TryRead(out var v) && v > x.Slot.MaxPowerIn);
+        public float Overpower => _readers.Sum(x =>
+        {
+            if (!x.TryRead(out var v) || v <= x.Slot.MaxPowerIn)
+                return 0f;
+
+            return v - x.Slot.MaxPowerIn;
+        });
 
         private Health _health;
 
@@ -36,12 +42,12 @@ namespace Erntemaschine.Vehicles
 
         protected virtual void Update()
         {
-            if (IsOverpowered)
+            if (Overpower > 0f)
             {
                 _shaker ??= CreateShake();
                 _shaker.ManualUpdate(Time.deltaTime, Time.unscaledDeltaTime);
 
-                _health.Value -= _overpoweredHealthDecay * Time.deltaTime;
+                _health.Value -= Overpower / 5f * Time.deltaTime;
             }
             else
             {

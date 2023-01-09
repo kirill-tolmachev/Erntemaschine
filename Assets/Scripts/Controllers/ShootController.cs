@@ -45,7 +45,8 @@ namespace Erntemaschine.Controllers
             instance.transform.SetParent(transform, true);
             instance.Speed = shot.BulletSpeed;
             instance.Damage = shot.BulletDamage;
-
+            instance.Author = shot.Author;
+            instance.transform.localScale = new Vector3(shot.BulletScale, shot.BulletScale * 1.5f, 1f);
             _bullets.Add(instance);
         }
 
@@ -69,6 +70,9 @@ namespace Erntemaschine.Controllers
         private void OnBulletHit(BulletHit obj)
         {
             var item = obj.Bullet;
+            if (_bullets.Contains(item)) 
+                return;
+            
             _bullets.Remove(item);
             _bulletPool.Release(item);
 

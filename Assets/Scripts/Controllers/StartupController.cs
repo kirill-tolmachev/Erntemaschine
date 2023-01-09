@@ -1,13 +1,23 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using Assets.Scripts.Messages;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Erntemaschine.Controllers
 {
     internal class StartupController : MonoBehaviour
     {
+        [Inject]
+        private IMessageBus _messageBus;
+
+        [Inject]
+        private ResourcesStorage _resourcesStorage;
+
         private void Start()
         {
+            _messageBus.Reset();
+            _resourcesStorage.Clear();
             Restart().Forget();
         }
 

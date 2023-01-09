@@ -16,5 +16,5 @@ MonoBehaviour:
   _itemDescription: Cheap and weak
   _sprite: {fileID: 0}
   _part: {fileID: 7210671369566492577, guid: 2d769dc04f1f11042a397668ae07ff42, type: 3}
-  _costW: 50
+  _costW: 100
   _costX: 1000

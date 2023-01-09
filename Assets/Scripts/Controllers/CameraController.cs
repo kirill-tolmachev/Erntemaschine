@@ -20,7 +20,7 @@ namespace Erntemaschine.Controllers
 
         private void Awake()
         {
-            _messageBus.Subscribe<GunShot>(_ => CameraShake(5f, 0.5f));
+            _messageBus.Subscribe<GunShot>(s => CameraShake(s.BulletDamage / 20f, 0.5f));
         }
 
         private void Update()
